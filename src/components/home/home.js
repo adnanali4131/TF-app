@@ -4,6 +4,8 @@ import * as tf from "@tensorflow/tfjs";
 import Webcam from "react-webcam";
 import { drawRect } from "../utils/utilities";
 import { nextFrame } from "@tensorflow/tfjs";
+import Header from "../shared/header";
+import Footer from "../shared/footer";
 // 2. TODO - Import drawing utility here
 // e.g. import { drawRect } from "./utilities";
 
@@ -69,49 +71,51 @@ function Home() {
       tf.dispose(casted)
       tf.dispose(expanded)
       tf.dispose(obj)
-
     }
   };
 
-  // useEffect(() => { runCoco() }, []);
+  useEffect(() => { runCoco() }, []);
 
   return (
-    <div className="App">
-      {/* <header className="App-header">
-        <Webcam
-          ref={webcamRef}
-          muted={true}
-          style={{
-            position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
-            left: 0,
-            right: 0,
-            textAlign: "center",
-            zindex: 9,
-            width: 640,
-            height: 480,
-          }}
-        />
+    <>
+      <Header />
+      <div className="App">
+        <header className="App-header">
+          <Webcam
+            ref={webcamRef}
+            muted={true}
+            style={{
+              position: "absolute",
+              marginLeft: "auto",
+              marginRight: "auto",
+              left: 0,
+              right: 0,
+              textAlign: "center",
+              zindex: 9,
+              width: 640,
+              height: 480,
+            }}
+          />
+          <canvas
+            ref={canvasRef}
+            style={{
+              position: "absolute",
+              marginLeft: "auto",
+              marginRight: "auto",
+              left: 0,
+              right: 0,
+              textAlign: "center",
+              zindex: 8,
+              width: 640,
+              height: 480,
+              transform: `rotateX("45deg")`
+            }}
+          />
+        </header>
 
-        <canvas
-          ref={canvasRef}
-          style={{
-            position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
-            left: 0,
-            right: 0,
-            textAlign: "center",
-            zindex: 8,
-            width: 640,
-            height: 480,
-            transform: `rotateX("45deg")`
-
-          }}
-        />
-      </header> */}
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }
 

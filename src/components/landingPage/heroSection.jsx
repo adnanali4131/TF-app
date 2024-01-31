@@ -1,6 +1,7 @@
 import React from "react";
 import heroImage from "../../assets/auth/hands.jpg"
 import './HeroSection.css';
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -9,11 +10,11 @@ const HeroSection = () => {
         <div className="col-md-6">
           <div className="">
             <img src={heroImage} alt="img" className="w-100 h-100" />
-            <button className="btn py-2 my-2 block w-100 btn-primary">
+            <Link to="/home" className="btn py-2 my-2 block w-100 btn-primary">
               <span className="h4">
                 {`Lets talk`}
               </span>
-            </button>
+            </Link>
           </div>
         </div>
         <div className="col-md-6 d-flex align-items-center py-4">
