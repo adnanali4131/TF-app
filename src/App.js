@@ -5,6 +5,7 @@ import SignUp from './components/auth/signUp';
 import Login from './components/auth/login';
 
 import "./App.css";
+import LandingPage from './components/landingPage';
 
 
 
@@ -14,7 +15,7 @@ function App() {
     <Router>
       <Fragment>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>

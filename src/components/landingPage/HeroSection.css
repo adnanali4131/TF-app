@@ -1,0 +1,8 @@
+.bg-image {
+  background-image: url("../../assets/auth/hands.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  /* Adjust height as needed */
+}
