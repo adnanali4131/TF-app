@@ -14,7 +14,8 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(true)
+    setLoading(true);
+
     try {
       const response = await fetch('https://tf-be.onrender.com/users/login', {
         method: 'POST',
@@ -24,13 +25,12 @@ const Login = () => {
         body: JSON.stringify({ email, password })
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
       const data = await response.json();
 
-      if (data.token) {
+      if (!response.ok) {
+        setErrorMessage(data.error || `HTTP error! Status: ${response.status}`);
+        setShowModal(true);
+      } else {
         localStorage.setItem('token', data.token);
         navigate('/');
       }
@@ -38,7 +38,7 @@ const Login = () => {
       setErrorMessage(error.message);
       setShowModal(true);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 

@@ -26,7 +26,7 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true)
+    setLoading(true);
 
     try {
       const response = await fetch("https://tf-be.onrender.com/users", {
@@ -37,17 +37,23 @@ const SignUp = () => {
         body: JSON.stringify(formData)
       });
 
-      if (response.ok) {
+      const data = await response.json(); // Parsing the response body
+
+      if (!response.ok) {
+        setErrorMessage(data.error || 'An error occurred'); // Extract the error message
+        setShowModal(true);
+      } else {
         navigate("/login");
       }
     } catch (error) {
-      console.log("error++>", error)
       setErrorMessage(error.message);
       setShowModal(true);
+      console.log("error++>", error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
+
 
   const handleCloseModal = () => {
     setShowModal(false);
