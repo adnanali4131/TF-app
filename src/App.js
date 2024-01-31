@@ -3,9 +3,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/home/home';
 import SignUp from './components/auth/signUp';
 import Login from './components/auth/login';
+
 import "./App.css";
 
+
+
 function App() {
+
   return (
     <Router>
       <Fragment>
