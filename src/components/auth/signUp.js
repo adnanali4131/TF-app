@@ -1,8 +1,9 @@
 import React from "react";
 import './index.css';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-const Login = () => {
+const SignUp = () => {
+
 
   return (
     <>
@@ -19,6 +20,14 @@ const Login = () => {
                 </h1>
                 <form className="mb-3">
                   <div>
+                    <label htmlFor="firstName" className="form-label">Your first Name</label>
+                    <input type="firstName" name="firstName" id="firstName" className="form-control" placeholder="First Name" required />
+                  </div>
+                  <div>
+                    <label htmlFor="lastName" className="form-label">Your lastName</label>
+                    <input type="lastName" name="lastName" id="lastName" className="form-control" placeholder="Last Name" required />
+                  </div>
+                  <div>
                     <label htmlFor="email" className="form-label">Your email</label>
                     <input type="email" name="email" id="email" className="form-control" placeholder="name@example.com" required />
                   </div>
@@ -26,16 +35,10 @@ const Login = () => {
                     <label htmlFor="password" className="form-label">Password</label>
                     <input type="password" name="password" id="password" className="form-control" placeholder="••••••••" required />
                   </div>
-                  <div className="d-flex pt-4 justify-content-between">
-                    <div className="form-check">
-                      <input id="remember" type="checkbox" className="form-check-input" required />
-                      <label htmlFor="remember" className="form-check-label">Remember me</label>
-                    </div>
-                    <a href="#" className="text-decoration-none">Forgot password?</a>
-                  </div>
-                  <button type="submit" className="w-100 btn btn-primary mt-3">Sign in</button>
-                  <p to="/signup" className="mt-2 text-muted">
-                    Don’t have an account yet? <Link to="/signup" className="text-decoration-none">Sign up</Link>
+
+                  <button type="submit" className="w-100 btn btn-primary mt-3">Sign Up</button>
+                  <p className="mt-2 text-muted">
+                    Already have an account  <Link to="/login" className="text-decoration-none">Login</Link>
                   </p>
                 </form>
               </div>
@@ -47,7 +50,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
 
 
 
